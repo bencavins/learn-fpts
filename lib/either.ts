@@ -1,4 +1,7 @@
-import { boolean } from "fp-ts";
+/**
+ * youtube vid: https://www.youtube.com/watch?v=g0dbedNM-iY
+ */
+
 import { increment, compose } from "./option_maybe_null";
 
 function divideTwoIfEven(n: number): number {
