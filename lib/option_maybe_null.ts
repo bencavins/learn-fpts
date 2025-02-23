@@ -26,22 +26,22 @@ console.log('composed(10) ==', composed(10));
 console.log('composed(0) ==', composed(0));
 
 
-type Option<A> = Some<A> | None;
-interface Some<A> {
+export type Option<A> = Some<A> | None;
+export interface Some<A> {
     _tag: 'Some';
     value: A;
 }
-interface None {
+export interface None {
     _tag: 'None';
 }
 
 // helper func to lift and wrap values under Some
 // takes a value of any type and returns a version of it inside Option
-const some = <A>(x: A): Option<A> => ({ _tag: 'Some', value: x });
-const none: Option<never> = { _tag: 'None' };
+export const some = <A>(x: A): Option<A> => ({ _tag: 'Some', value: x });
+export const none: Option<never> = { _tag: 'None' };
 // what is the x is None hint?
 // it is a type guard that checks if the value is of type None
-const isNone = <A>(x: Option<A>): x is None => x._tag === 'None';
+export const isNone = <A>(x: Option<A>): x is None => x._tag === 'None';
 
 type DivideTwo2 = (x: number) => Option<number>;
 const divide_two2: DivideTwo2 = (x) => x === 0 ? none : some(2 / x);
